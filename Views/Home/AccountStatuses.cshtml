@@ -14,13 +14,16 @@
         <div class="account-container active-account">
             @foreach (var account in @Model.activeAccounts)
             {
-                <ul class="account-data-list">
-                    <li><label>Name:</label>@account.LastName, @account.FirstName</li>
-                    <li><label>Email:</label>@account.Email</li>
-                    <li><label>Phone Number:</label>@account.PhoneNumber</li>
-                    <li><label>Amount Due:</label>@account.AmountDue</li>
-                    <li><label>Due Date:</label>@account.PaymentDueDate</li>
-                </ul>
+            <ul class="account-data-list">
+                <li><label>Name:</label>@account.LastName, @account.FirstName</li>
+                <li><label>Email:</label>@account.Email</li>
+                <li><label>Phone Number:</label>@account.PhoneNumber</li>
+                <li><label>Amount Due:</label>$@account.AmountDue</li>
+                @if (account.PaymentDueDate.HasValue)
+                {
+                    <li><label>Due Date:</label>@account.PaymentDueDate.Value.ToString("MM/dd/yyyy")</li>
+                }
+            </ul>
             }
         </div>
     </article>
@@ -35,8 +38,11 @@
                     <li><label>Name:</label>@account.LastName, @account.FirstName</li>
                     <li><label>Email:</label>@account.Email</li>
                     <li><label>Phone Number:</label>@account.PhoneNumber</li>
-                    <li><label>Amount Due:</label>@account.AmountDue</li>
-                    <li><label>Due Date:</label>@account.PaymentDueDate</li>
+                    <li><label>Amount Due:</label>$@account.AmountDue</li>
+                    @if (account.PaymentDueDate.HasValue)
+                    {
+                        <li><label>Due Date:</label>@account.PaymentDueDate.Value.ToString("MM/dd/yyyy")</li>
+                    }
                 </ul>
             }
         </div>
@@ -48,13 +54,16 @@
         <div class="account-container inactive-account">
             @foreach (var account in @Model.inactiveAccounts)
             {
-                <ul class="account-data-list">
-                    <li><label>Name:</label>@account.LastName, @account.FirstName</li>
-                    <li><label>Email:</label>@account.Email</li>
-                    <li><label>Phone Number:</label>@account.PhoneNumber</li>
-                    <li><label>Amount Due:</label>@account.AmountDue</li>
-                    <li><label>Due Date:</label>@account.PaymentDueDate</li>
-                </ul>
+            <ul class="account-data-list">
+                <li><label>Name:</label>@account.LastName, @account.FirstName</li>
+                <li><label>Email:</label>@account.Email</li>
+                <li><label>Phone Number:</label>@account.PhoneNumber</li>
+                <li><label>Amount Due:</label>$@account.AmountDue</li>
+                @if (account.PaymentDueDate.HasValue)
+                {
+                    <li><label>Due Date:</label>@account.PaymentDueDate.Value.ToString("MM/dd/yyyy")</li>
+                }
+            </ul>
             }
         </div>
     </div>

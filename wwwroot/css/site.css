@@ -44,6 +44,7 @@ footer {
     color: #fff;
     grid-template-columns: 1% 98% 1%;
     grid-template-rows: 5% 90% 5%;
+    margin-top: auto;
 }
 
 .grid {
@@ -58,6 +59,9 @@ footer {
 #home-content {
     grid-row-gap: 25px;
     grid-template-rows: 10px 100px auto;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 5%;
 }
 
 #account-grid {
@@ -96,14 +100,14 @@ footer {
     list-style: none;
 }
 
-    .account-data-list > li {
-        margin: 10px 0;
-    }
+.account-data-list > li {
+    margin: 10px 0;
+}
 
-        .account-data-list > li > label {
-            font-weight: bold;
-            margin: 0 5px 0 0;
-        }
+.account-data-list > li > label {
+    font-weight: bold;
+    margin: 0 5px 0 0;
+}
 
 .copy {
     place-self: end;

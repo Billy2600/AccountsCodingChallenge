@@ -20,16 +20,6 @@ namespace AccountsCodingChallenge.Controllers
             _accountService = accountService;
         }
 
-        public IActionResult Index()
-        {
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
         public IActionResult AccountStatuses()
         {
             var accounts = _accountService.GetAccountsAsync().Result;

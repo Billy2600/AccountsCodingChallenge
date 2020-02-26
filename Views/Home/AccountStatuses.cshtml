@@ -12,29 +12,9 @@
             <h3>Active</h3>
         </div>
         <div class="account-container active-account">
-            @foreach (var account in @Model.activeAccounts)
-            {
             <ul class="account-data-list">
-                <li><label>Name:</label>@account.LastName, @account.FirstName</li>
-                <li><label>Email:</label>@account.Email</li>
-                <li><label>Phone Number:</label>@account.PhoneNumber</li>
-                <li><label>Amount Due:</label>$@account.AmountDue</li>
-                @if (account.PaymentDueDate.HasValue)
+                @foreach (var account in @Model.activeAccounts)
                 {
-                    <li><label>Due Date:</label>@account.PaymentDueDate.Value.ToString("MM/dd/yyyy")</li>
-                }
-            </ul>
-            }
-        </div>
-    </article>
-    <article class="account-column grid" id="overdue-account-column">
-        <div class="account-container-title" id="overdue-account-container-title">
-            <h3>Overdue</h3>
-        </div>
-        <div class="account-container overdue-account">
-            @foreach (var account in @Model.overdueAccounts)
-            {
-                <ul class="account-data-list">
                     <li><label>Name:</label>@account.LastName, @account.FirstName</li>
                     <li><label>Email:</label>@account.Email</li>
                     <li><label>Phone Number:</label>@account.PhoneNumber</li>
@@ -43,8 +23,28 @@
                     {
                         <li><label>Due Date:</label>@account.PaymentDueDate.Value.ToString("MM/dd/yyyy")</li>
                     }
-                </ul>
-            }
+                }
+            </ul>
+        </div>
+    </article>
+    <article class="account-column grid" id="overdue-account-column">
+        <div class="account-container-title" id="overdue-account-container-title">
+            <h3>Overdue</h3>
+        </div>
+        <div class="account-container overdue-account">
+            <ul class="account-data-list">
+                @foreach (var account in @Model.overdueAccounts)
+                {
+                    <li><label>Name:</label>@account.LastName, @account.FirstName</li>
+                    <li><label>Email:</label>@account.Email</li>
+                    <li><label>Phone Number:</label>@account.PhoneNumber</li>
+                    <li><label>Amount Due:</label>$@account.AmountDue</li>
+                    @if (account.PaymentDueDate.HasValue)
+                    {
+                        <li><label>Due Date:</label>@account.PaymentDueDate.Value.ToString("MM/dd/yyyy")</li>
+                    }
+                }
+            </ul>
         </div>
     </article>
     <div class="account-column grid" id="inactive-account-column">
@@ -52,19 +52,19 @@
             <h3>Inactive</h3>
         </div>
         <div class="account-container inactive-account">
-            @foreach (var account in @Model.inactiveAccounts)
-            {
             <ul class="account-data-list">
-                <li><label>Name:</label>@account.LastName, @account.FirstName</li>
-                <li><label>Email:</label>@account.Email</li>
-                <li><label>Phone Number:</label>@account.PhoneNumber</li>
-                <li><label>Amount Due:</label>$@account.AmountDue</li>
-                @if (account.PaymentDueDate.HasValue)
+                @foreach (var account in @Model.inactiveAccounts)
                 {
-                    <li><label>Due Date:</label>@account.PaymentDueDate.Value.ToString("MM/dd/yyyy")</li>
+                    <li><label>Name:</label>@account.LastName, @account.FirstName</li>
+                    <li><label>Email:</label>@account.Email</li>
+                    <li><label>Phone Number:</label>@account.PhoneNumber</li>
+                    <li><label>Amount Due:</label>$@account.AmountDue</li>
+                    @if (account.PaymentDueDate.HasValue)
+                    {
+                        <li><label>Due Date:</label>@account.PaymentDueDate.Value.ToString("MM/dd/yyyy")</li>
+                    }
                 }
             </ul>
-            }
         </div>
     </div>
 </article>

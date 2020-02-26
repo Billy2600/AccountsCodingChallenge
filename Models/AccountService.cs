@@ -6,6 +6,7 @@ using System.Net.Http;
 using Microsoft.AspNetCore.Mvc;
 using AccountsCodingChallenge.Models;
 using Newtonsoft.Json;
+using System.Globalization;
 
 namespace AccountsCodingChallenge.Models
 {
@@ -49,6 +50,17 @@ namespace AccountsCodingChallenge.Models
         public List<AccountModel> GetOverdueAccounts(List<AccountModel> allAccounts)
         {
             return allAccounts.Where(x => x.AccountStatusId == (int)AccountStatuses.Overdue).ToList();
+        }
+
+        public void FormatPhoneNumbers(List<AccountModel> accounts)
+        {
+            foreach(var account in accounts)
+            {
+                // This is a less efficient way to do it
+                // More efficient would probably be regex
+                var number = long.Parse(account.PhoneNumber);
+                account.PhoneNumber = String.Format("{0:(###) ###-####}", number);
+            }
         }
     }
 }

@@ -12,5 +12,6 @@ namespace AccountsCodingChallenge.Models
         public List<AccountModel> GetActiveAccounts(List<AccountModel> allAccounts);
         public List<AccountModel> GetInctiveAccounts(List<AccountModel> allAccounts);
         public List<AccountModel> GetOverdueAccounts(List<AccountModel> allAccounts);
+        public void FormatPhoneNumbers(List<AccountModel> accounts);
     }
 }

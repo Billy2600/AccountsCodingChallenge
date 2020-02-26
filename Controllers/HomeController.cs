@@ -28,6 +28,11 @@ namespace AccountsCodingChallenge.Controllers
                 return Error();
             }
 
+            // TODO: Dates could be formatting in the same manner
+            // Given given that they're not strings, I elected to format them in the view
+            // Phone number and dates formatting should be more consistent
+            _accountService.FormatPhoneNumbers(accounts);
+
             var accountLists = new AccountListsModel()
             {
                 activeAccounts = _accountService.GetActiveAccounts(accounts),

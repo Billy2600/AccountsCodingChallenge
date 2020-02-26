@@ -1,4 +1,4 @@
-﻿@model List<Account>
+﻿@model AccountListsModel
 @{
     ViewData["Title"] = "AccountStatuses";
 }
@@ -12,7 +12,7 @@
             <h3>Active</h3>
         </div>
         <div class="account-container active-account">
-            @foreach (var account in @Model)
+            @foreach (var account in @Model.activeAccounts)
             {
                 <ul class="account-data-list">
                     <li><label>Name:</label>@account.LastName, @account.FirstName</li>
@@ -29,7 +29,7 @@
             <h3>Overdue</h3>
         </div>
         <div class="account-container overdue-account">
-            @foreach (var account in @Model)
+            @foreach (var account in @Model.overdueAccounts)
             {
                 <ul class="account-data-list">
                     <li><label>Name:</label>@account.LastName, @account.FirstName</li>
@@ -46,7 +46,7 @@
             <h3>Inactive</h3>
         </div>
         <div class="account-container inactive-account">
-            @foreach (var account in @Model)
+            @foreach (var account in @Model.inactiveAccounts)
             {
                 <ul class="account-data-list">
                     <li><label>Name:</label>@account.LastName, @account.FirstName</li>

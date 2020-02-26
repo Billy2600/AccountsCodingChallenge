@@ -38,7 +38,14 @@ namespace AccountsCodingChallenge.Controllers
                 return Error();
             }
 
-            return View(accounts);
+            var accountLists = new AccountListsModel()
+            {
+                activeAccounts = _accountService.GetActiveAccounts(accounts),
+                inactiveAccounts = _accountService.GetInctiveAccounts(accounts),
+                overdueAccounts = _accountService.GetOverdueAccounts(accounts)
+            };
+
+            return View(accountLists);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

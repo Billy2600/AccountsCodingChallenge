@@ -13,19 +13,19 @@ namespace AccountsCodingChallenge.Models
     {
         private const string accountApiUrl = "https://frontiercodingtests.azurewebsites.net/api/accounts/getall";
 
-        public async Task<List<Account>> GetAccountsAsync()
+        public async Task<List<AccountModel>> GetAccountsAsync()
         {
             using (var client = new HttpClient())
             {
                 try
                 {
-                    var accountList = new List<Account>();
+                    var accountList = new List<AccountModel>();
                     using(var httpClient = new HttpClient())
                     {
                         using (var response = await httpClient.GetAsync(accountApiUrl))
                         {
                             string responseJson = await response.Content.ReadAsStringAsync();
-                            accountList = JsonConvert.DeserializeObject<List<Account>>(responseJson);
+                            accountList = JsonConvert.DeserializeObject<List<AccountModel>>(responseJson);
                             return accountList;
                         }
                     }
@@ -33,9 +33,22 @@ namespace AccountsCodingChallenge.Models
                 catch (HttpRequestException httpReqException)
                 {
                     Console.WriteLine(httpReqException.Message); // TODO: In a 'real' project, this would probably get logged somewhere with more info
-                    return new List<Account>();
+                    return new List<AccountModel>();
                 }
             }
+        }
+
+        public List<AccountModel> GetActiveAccounts(List<AccountModel> allAccounts)
+        {
+            return allAccounts.Where(x => x.AccountStatusId == (int)AccountStatuses.Active).ToList();
+        }
+        public List<AccountModel> GetInctiveAccounts(List<AccountModel> allAccounts)
+        {
+            return allAccounts.Where(x => x.AccountStatusId == (int)AccountStatuses.Inactive).ToList();
+        }
+        public List<AccountModel> GetOverdueAccounts(List<AccountModel> allAccounts)
+        {
+            return allAccounts.Where(x => x.AccountStatusId == (int)AccountStatuses.Overdue).ToList();
         }
     }
 }

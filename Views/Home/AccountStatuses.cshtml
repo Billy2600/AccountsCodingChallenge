@@ -1,0 +1,61 @@
+﻿@model List<Account>
+@{
+    ViewData["Title"] = "AccountStatuses";
+}
+
+<div class="content-title-container">
+    <h2>Accounts</h2>
+</div>
+<article class="grid" id="account-grid">
+    <article class="account-column grid" id="active-account-column">
+        <div class="account-container-title" id="active-account-container-title">
+            <h3>Active</h3>
+        </div>
+        <div class="account-container active-account">
+            @foreach (var account in @Model)
+            {
+                <ul class="account-data-list">
+                    <li><label>Name:</label>@account.LastName, @account.FirstName</li>
+                    <li><label>Email:</label>@account.Email</li>
+                    <li><label>Phone Number:</label>@account.PhoneNumber</li>
+                    <li><label>Amount Due:</label>@account.AmountDue</li>
+                    <li><label>Due Date:</label>@account.PaymentDueDate</li>
+                </ul>
+            }
+        </div>
+    </article>
+    <article class="account-column grid" id="overdue-account-column">
+        <div class="account-container-title" id="overdue-account-container-title">
+            <h3>Overdue</h3>
+        </div>
+        <div class="account-container overdue-account">
+            @foreach (var account in @Model)
+            {
+                <ul class="account-data-list">
+                    <li><label>Name:</label>@account.LastName, @account.FirstName</li>
+                    <li><label>Email:</label>@account.Email</li>
+                    <li><label>Phone Number:</label>@account.PhoneNumber</li>
+                    <li><label>Amount Due:</label>@account.AmountDue</li>
+                    <li><label>Due Date:</label>@account.PaymentDueDate</li>
+                </ul>
+            }
+        </div>
+    </article>
+    <div class="account-column grid" id="inactive-account-column">
+        <div class="account-container-title" id="inactive-account-container-title">
+            <h3>Inactive</h3>
+        </div>
+        <div class="account-container inactive-account">
+            @foreach (var account in @Model)
+            {
+                <ul class="account-data-list">
+                    <li><label>Name:</label>@account.LastName, @account.FirstName</li>
+                    <li><label>Email:</label>@account.Email</li>
+                    <li><label>Phone Number:</label>@account.PhoneNumber</li>
+                    <li><label>Amount Due:</label>@account.AmountDue</li>
+                    <li><label>Due Date:</label>@account.PaymentDueDate</li>
+                </ul>
+            }
+        </div>
+    </div>
+</article>

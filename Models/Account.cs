@@ -11,9 +11,9 @@ namespace AccountsCodingChallenge.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
-        public string PhoneNumber { get; set; }
-        public decimal AmountDue { get; set; }
-        public DateTimeOffset PaymentDueDate { get; set; }
-        public int AccountStatusId { get; set; }
+        public string? PhoneNumber { get; set; }
+        public decimal? AmountDue { get; set; }
+        public DateTimeOffset? PaymentDueDate { get; set; }
+        public int? AccountStatusId { get; set; }
     }
 }
